@@ -1,0 +1,9 @@
+[general]
+name=Stable Beach DEM "Perfis"
+qgisMinimumVersion=3.10
+qgisMaximumVersion=3.99
+version=0.1
+description=Generate a DEM for a stable beach using user-defined parameters
+author=Renato/Emília
+email=renato@example.com
+about=This plugin generates profiles from nodes of a line, based on a defined slope, direction, and input lines.

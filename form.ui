@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Beach Analysis Tool</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <!-- Tab 1 - Stable Beach Generation -->
+     <widget class="QWidget" name="tab_beach">
+      <attribute name="title">
+       <string>Stable Beach Generation</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="beachLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Select DEM Layer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="demLayerCombo"/>
+       </item>
+       
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Select Base Line (A)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="lineALayerCombo"/>
+       </item>
+       
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Select Limit Line (B)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="lineBLayerCombo"/>
+       </item>
+       
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Enter Slope (degrees)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="slopeInput"/>
+       </item>
+       
+       <item>
+        <widget class="QGroupBox" name="profileOptionsGroup">
+         <property name="title">
+          <string>Profile Creation Options</string>
+         </property>
+         <layout class="QVBoxLayout" name="optionsLayout">
+          <item>
+           <widget class="QRadioButton" name="nodeBasedRadio">
+            <property name="text">
+             <string>Node Based</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="distanceIntervalRadio">
+            <property name="text">
+             <string>Distance Interval</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="distanceWidget">
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>Distance (m)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="distanceInput">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       
+       <item>
+        <widget class="QCheckBox" name="interpolateCheckBox">
+         <property name="text">
+          <string>Generate interpolated surface</string>
+         </property>
+        </widget>
+       </item>
+       
+       <item>
+        <widget class="QGroupBox" name="interpolationGroup">
+         <property name="title">
+          <string>Interpolation Parameters</string>
+         </property>
+         <property name="visible">
+          <bool>false</bool>
+         </property>
+         <layout class="QVBoxLayout" name="interpolationLayout">
+          <item>
+           <widget class="QWidget" name="modeWidget">
+            <layout class="QHBoxLayout" name="modeLayout">
+             <item>
+              <widget class="QLabel" name="modeLabel">
+               <property name="text">
+                <string>Interpolation mode:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="modeCombo">
+               <item>
+                <property name="text">
+                 <string>wmean</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>mean</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>median</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>mode</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          
+          <item>
+           <widget class="QWidget" name="powerWidget">
+            <layout class="QHBoxLayout" name="powerLayout">
+             <item>
+              <widget class="QLabel" name="powerLabel">
+               <property name="text">
+                <string>Power:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="powerInput">
+               <property name="text">
+                <string>2.0</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          
+          <item>
+           <widget class="QWidget" name="cellsWidget">
+            <layout class="QHBoxLayout" name="cellsLayout">
+             <item>
+              <widget class="QLabel" name="cellsLabel">
+               <property name="text">
+                <string>Number of cells to search:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="cellsInput">
+               <property name="text">
+                <string>6</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          
+          <item>
+           <widget class="QWidget" name="distanceSearchWidget">
+            <layout class="QHBoxLayout" name="distanceSearchLayout">
+             <item>
+              <widget class="QLabel" name="distanceSearchLabel">
+               <property name="text">
+                <string>Search distance:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="distanceSearchInput">
+               <property name="text">
+                <string>0.5</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          
+          <item>
+           <widget class="QCheckBox" name="noNullsCheckBox">
+            <property name="text">
+             <string>Do not propagate null values</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       
+       <item>
+        <spacer name="spacerBeach">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     
+     <!-- Tab 2 - Volume Calculation Grid -->
+     <widget class="QWidget" name="tab_volume">
+      <attribute name="title">
+       <string>Volume Calculation Grid</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="volumeLayout">
+       <item>
+        <widget class="QLabel" name="polyLabel">
+         <property name="text">
+          <string>Select Polygon Layer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="polygonLayerCombo"/>
+       </item>
+       
+       <item>
+        <widget class="QLabel" name="gridSizeLabel">
+         <property name="text">
+          <string>Grid Cell Size</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="gridSizeInput"/>
+       </item>
+
+       <item>
+        <widget class="QCheckBox" name="overlapCheckBox">
+         <property name="text">
+          <string>Only Generate Overlap Cells</string>
+         </property>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QPushButton" name="generateGridButton">
+         <property name="text">
+          <string>Generate Grid</string>
+         </property>
+        </widget>
+       </item>
+       
+       <item>
+        <spacer name="spacerVolume">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   
+   <!-- Common controls outside tabs -->
+   <item>
+    <widget class="QPushButton" name="runButton">
+     <property name="text">
+      <string>Generate</string>
+     </property>
+    </widget>
+   </item>
+   
+   <item>
+    <widget class="QLabel" name="statusLabel">
+     <property name="text">
+      <string>Ready</string>
+     </property>
+    </widget>
+   </item>
+   
+   <item>
+    <widget class="QProgressBar" name="progressBar">
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <connections>
+  <connection>
+   <sender>interpolateCheckBox</sender>
+   <signal>toggled</signal>
+   <receiver>interpolationGroup</receiver>
+   <slot>setVisible</slot>
+  </connection>
+ </connections>
+</ui>
